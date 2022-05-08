@@ -1,0 +1,38 @@
+<%- include("../../partials/dashboard/header") %>
+
+<div class="table-responsive-md my-5">
+    <% if(categories.length > 0) { %>
+
+        <table class="table">
+            <thead>
+          <tr>
+            <th scope="col">Title</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% categories.forEach( category => { %>
+                <tr>
+                  <th scope="row"><%= category.title %></th>
+                </tr>
+            <% }) %>
+        </tbody>
+      </table>
+</div>
+
+<% } else { %>
+    <h3 class="text-center fw-bold fst-italic">No categories</h3>
+<% } %>
+
+<form action="/categories/create" method="post" class="my-5 mx-auto">
+  <!-- Form -->
+  <div class="form-group my-3">
+      <div class="input-group">
+          <input type="text" class="form-control" name="title" placeholder="Enter category title.." maxlength="10" autofocus required>
+      </div>  
+  </div>
+  <div class="d-grid">
+      <button class="btn btn-dark w-50 mx-auto py-2">Save</button>
+  </div>
+</form>
+
+</div></div></div>

@@ -1,0 +1,125 @@
+ <!-- hero -->
+ <div id="hero" class="min-vh-100 d-flex align-items-center text-center">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-lg-10 text-white">
+              <h1 class="display-4 text-white fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+              <p class="lead mt-3 mb-4 mx-auto" style="max-width: 600px">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut suscipit totam deserunt voluptates delectus beatae.</p>
+              <a href="#" class="_btn _btn-primary py-3">Get Started Now</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- about -->
+
+<section id="about">
+  <div class="container">
+      <div class="row align-items-center gy-2">
+          <div class="col-lg-5">
+              <img src="https://picsum.photos/400/300" alt="image one">
+          </div>
+          <div class="col-lg-5 offset-lg-1">
+              <h5>About us</h5>
+              <h1 class="mt-2 mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h1>
+              <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero obcaecati amet odio accusamus nisi, in vitae minus expedita laboriosam placeat, impedit, perspiciatis labore cumque nemo repellendus quos alias ut similique?</p>
+              <a href="#" class="_btn _btn-primary py-3">Explore Our Work</a>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Posts -->
+
+<section id="posts">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="section-title">
+                  <h5>Posts</h5>
+                  <h1 class="my-1">Latest from our team</h1>
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit ipsa itaque tempora
+                      recusandae amet, mollitia sunt accusantium voluptates</p>
+              </div>
+          </div>
+      </div>
+
+      <% if (posts.length > 0) { %>
+      <div class="row gy-5">
+          <% posts.forEach( post => { %>
+            <div class="col-lg-4">
+                <div class="blog-post">
+                    <img src="https://picsum.photos/300/250" alt="cover image">
+                    <h4 class="my-3"><%= post.title %></h4>
+                    <a href="/posts/one/<%= post.id %>" class="link">Read More</a>
+                </div>
+            </div>
+            <% }) %>
+      </div>
+      <% } %>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="bg-dark">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="section-title">
+                  <h5>Reviews</h5>
+                  <h1 class="text-white">"Lorem ipsum dolor sit"</h1>
+                  <p class="text-white-50">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit ipsa itaque tempora
+                      recusandae amet, mollitia sunt accusantium voluptates</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- review slide -->
+      <div class="owl-carousel owl-theme" id="reviews_carousel">
+          <div class="review bg-white p-4 p-md-5">
+              <h4>"consectetur, adipisicing elit."</h4>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque aliquid eum minus id reiciendis, mollitia optio ad, quia natus ullam maiores culpa quos vero?</p>
+              <div class="person d-flex align-items-center">
+                  <img class="rounded-pill" style="width: 80px;" src="https://picsum.photos/300/200" alt="">
+                  <div class="ms-3">
+                      <h5>Jane Doe</h5>
+                      <p class="mb-0">UX Designer</p>
+                  </div>
+              </div>
+          </div>
+          <div class="review bg-white p-4 p-md-5">
+              <h4>"id reiciendis, mollitia optio ad, quia"</h4>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque aliquid eum minus id reiciendis, mollitia optio ad, quia natus ullam maiores culpa quos vero?</p>
+              <div class="person d-flex align-items-center">
+                  <img class="rounded-pill" style="width: 80px;" src="https://picsum.photos/302/200" alt="">
+                  <div class="ms-3">
+                      <h5>Sam Smith</h5>
+                      <p class="mb-0">Game Dev</p>
+                  </div>
+              </div>
+          </div>
+          <div class="review bg-white p-4 p-md-5">
+              <h4>Lorem, ipsum dolor.</h4>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque aliquid eum minus id reiciendis, mollitia optio ad, quia natus ullam maiores culpa quos vero?</p>
+              <div class="person d-flex align-items-center">
+                  <img class="rounded-pill" style="width: 80px;" src="https://picsum.photos/301/200" alt="">
+                  <div class="ms-3">
+                      <h5>John Doe</h5>
+                      <p class="mb-0">Sys Admin</p>
+                  </div>
+              </div>
+          </div>
+          <div class="review bg-white p-4 p-md-5">
+              <h4>"mollitia optio ad, quia natus"</h4>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque aliquid eum minus id reiciendis, mollitia optio ad, quia natus ullam maiores culpa quos vero?</p>
+              <div class="person d-flex align-items-center">
+                  <img class="rounded-pill" style="width: 80px;" src="https://picsum.photos/303/200" alt="">
+                  <div class="ms-3">
+                      <h5>Salma Ahmed</h5>
+                      <p class="mb-0">Web Dev</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

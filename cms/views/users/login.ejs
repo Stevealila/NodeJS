@@ -1,0 +1,34 @@
+<div class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center py-5">
+    <div class="container col-md-8 mx-auto">
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+
+                <form action="/users/login" method="post" class="mt-4">
+                    <div class="form-group mb-4">
+                        <label for="email">Email: </label>
+                        <div class="input-group">
+                            <input type="email" class="form-control" id="email" name="email" autofocus required>
+                        </div>  
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="password">Password: </label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>  
+                    </div>
+                    <div class="d-grid">
+                        <button class="btn btn-gray-800">Login</button>
+                    </div>
+                </form>
+
+                <div class="d-flex justify-content-center align-items-center mt-4">
+                    <span class="fw-normal">
+                        Not yet registered? 
+                        <a href="/users/register" class="fw-bold">Register</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

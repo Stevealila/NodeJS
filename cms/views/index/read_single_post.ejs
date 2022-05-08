@@ -1,0 +1,41 @@
+
+<div class="container my-5 pt-3">
+    <h1 class="text-center py-3"><%= post.title %></h1>
+    <hr>
+    <div>
+        <%= post._body %>
+    </div>
+    <hr>
+    <div>
+
+<!-- Button trigger modal -->
+<button type="button" class="_btn _btn-primary text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Leave a comment
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Message body</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/comments/create" method="post" class="my-5 mx-auto">
+                <!-- Form -->
+                <div class="form-group my-3">
+                    <div class="input-group">
+                        <textarea class="form-control" placeholder="Type something..." rows="3" id="_body" name="_body" required></textarea>
+                    </div>   
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-dark w-50 mx-auto py-2">Send</button>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+</div>

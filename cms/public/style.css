@@ -1,0 +1,71 @@
+* {
+    --primary-color: rgb(255, 162, 0);
+
+}
+
+a {
+    transition: all 0.4s ease;
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+section {
+    padding: 7rem 0;
+}
+
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://picsum.photos/400/301');
+    background-position: center;
+    background-size: cover;
+}
+
+._btn {
+    font-weight: 500;
+    padding: .5rem 2rem;
+    border-radius: 0;
+    transition: all 0.2s ease;
+}
+
+._btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+._btn-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+#about {
+    position: relative;
+}
+
+#about h5, .section-title h5 {
+    color: var(--primary-color);
+}
+
+.section-title {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.link::before {
+    content: "";
+    width: .65rem;
+    height: 2px;
+    background-color: var(--primary-color);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .65rem;
+    transition: all 0.4s ease;
+}
+
+.link:hover::before {
+    width: 1.2rem;
+}
