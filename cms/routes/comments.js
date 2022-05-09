@@ -1,14 +1,11 @@
+
 import express from "express"
-const router = express.Router()
 import { auth } from '../middleware/auth.js'
+import commentsController from '../controllers/comments.js'
 
-import { allComments, getComment, postComment } from '../controllers/comments.js'
+const router = express.Router()
 
-router.route('/all')
-    .get(auth, allComments)
-
-router.route('/create')
-    .get(auth, getComment)
-    .post(auth, postComment)
+router.route('/create/:id')
+    .post(auth, commentsController.commentCreate)
 
 export default router

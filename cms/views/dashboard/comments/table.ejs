@@ -1,0 +1,38 @@
+<%- include("../../partials/dashboard/header") %>
+
+<div class="table-responsive-md my-5">
+    <% if(comments.length > 0) { %>
+
+      <table class="table table-dark table-hover table-striped">
+            <thead>
+          <tr>
+            <th scope="col">Body</th>
+            <th scope="col">Post</th>
+            <th scope="col">isApproved</th>
+            <th scope="col">Author</th>
+            <th scope="col">Submission date</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% comments.forEach( comment => { %>
+                <tr>
+                  <th scope="row"><%= comment.comment_body %></th>
+                  <% if(comment.post !== undefined) { %>
+                    <th><%= comment.post.title %></th>
+                  <% } else { %>
+                    <th></th>
+                  <% } %>
+                  <td><%= comment.is_approved %></td>
+                  <td><%= comment.user.username %></td>
+                  <td><%= comment.creation_date.toDateString() %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+      </table>
+</div>
+
+<% } else { %>
+    <h3 class="text-center fw-bold fst-italic">No comments</h3>
+<% } %>
+
+</div></div></div>

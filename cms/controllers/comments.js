@@ -1,34 +1,26 @@
 import Comment from '../models/Comment.js'
+import Post from '../models/Post.js'
 
-export const allComments = (req, res) => {
-    res.render('admin/comments/all')
-}
+export default {
+    
+    commentCreate: async (req, res) => {
+        const post = await Post.findById(req.params.id)
 
-export const getComment = (req, res) => {
-    res.render('admin/comments/create')
-}
-
-export const postComment = async (req, res) => {
-
-    const { comment_body, is_approved } = req.body
-
-    const commentsApproved = is_approved ? true: false
-
-        let comment = new Comment({ comment_body, is_approved: commentsApproved, user: req.user.username })
-
+        const comment_body = req.body.comment_body
+        const isApproved = req.body.is_approved ? true : false
+        
+        let comment = new Comment({ comment_body, is_approved: isApproved, user: req.user.id, post: req.params.id})
+        
         try {
 
-           comment = await comment.save()
-           req.flash('sucess_alert', 'comment created successfully!')
-           res.redirect('/admin/dashboard')
-
-           console.log(comment);
-            
-        } catch (e) {
-            console.log(e);
-            req.flash('failure_alert', 'Failed to create a comment..')
-            res.render('admin/dashboard')
-        }
-
+            comment = await comment.save()
+            post.comments.push(comment._id)
+            res.redirect(`/posts/one/${post._id}`)
+        } 
+        catch {
+            res.render('index/index')
+        } 
+    }
     
 }
+

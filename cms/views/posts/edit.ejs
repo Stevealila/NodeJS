@@ -17,10 +17,12 @@
                             <label for="status">Status: </label>
                             <div class="input-group">
                                 <select name="status_update" id="status" class="form-control">
-                                    <option value="<%= post.status%>"><%= post.status%></option>
-                                    <option value="public">public</option>
-                                    <option value="private">private</option>
-                                    <option value="draft">draft</option>
+                                    <% if(post.status) { %>
+                                        <option selected value="<%= post.status %>"><%= post.status %></option>
+                                    <% } %>
+                                        <option value="public">public</option>
+                                        <option value="private">private</option>
+                                        <option value="draft">draft</option>
                                 </select>
                             </div>  
                         </div>
@@ -28,12 +30,13 @@
                         <div class="form-group my-3">
                             <label for="category">Category: </label>
                             <div class="input-group">
-                                <select name="category" id="category" class="form-control">
-                                    <option value="<%= post.category %>"><%= post.category %></option>
-                                <% categories.forEach ( category => { %>
-                                    <option value="<%= category.title %>"><%= category.title %></option>
-                                <% }) %>
-                                    </select>
+                                <select name="category_update" id="category" class="form-control">
+
+                                    <option selected value="<%= post.category %>"><%= post.category.title %></option>
+                                    <% categories.forEach( category => { %>
+                                        <option value="<%= category._id %>"><%= category.title %></option>
+                                        <% }) %>
+                                </select>
                             </div>  
                         </div>
 

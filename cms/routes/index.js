@@ -18,6 +18,9 @@ router.route('/dashboard/posts')
 router.route('/dashboard/categories')
     .get(auth, indexController.dashboardCategories)
 
+router.route('/dashboard/comments')
+    .get(auth, indexController.dashboardComments)
+
 export default router
 
     

@@ -22,13 +22,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="/comments/create" method="post" class="my-5 mx-auto">
+            <form action="/comments/create/<%= post._id %>" method="post" class="my-5 mx-auto">
                 <!-- Form -->
                 <div class="form-group my-3">
                     <div class="input-group">
-                        <textarea class="form-control" placeholder="Type something..." rows="3" id="_body" name="_body" required></textarea>
+                        <textarea class="form-control" placeholder="Type something..." rows="3" id="_body" name="comment_body" required></textarea>
                     </div>   
                 </div>
+                
                 <div class="d-grid">
                     <button class="btn btn-dark w-50 mx-auto py-2">Send</button>
                 </div>

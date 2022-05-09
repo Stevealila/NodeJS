@@ -5,7 +5,8 @@ export default {
 
     renderCreateForm: async (req, res) => {
         const categories = await Category.find({})
-        res.render('posts/create', { username: req.user.username, categories })
+
+        res.render('posts/create', {categories })
     },
     
     postCreate: async (req, res) => {
@@ -18,12 +19,12 @@ export default {
             res.redirect('/dashboard/posts')
         } 
         catch {
-            res.render('index/index')
+            res.render('posts/create')
         } 
     },
     
     renderEditForm: async (req, res) => {
-        const post = await Post.findById(req.params.id)
+        const post = await Post.findById(req.params.id).populate('category')
         const categories = await Category.find({})
 
         res.render('posts/edit', { post, categories })
@@ -49,7 +50,7 @@ export default {
             res.redirect('/dashboard/posts')
         } 
         catch {
-            res.render('dashboard/index')
+            res.render('posts/edit')
         } 
     },
 

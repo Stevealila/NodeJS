@@ -28,7 +28,7 @@
                     <div class="input-group">
                         <select name="category" id="category" class="form-control">
                         <% categories.forEach ( category => { %>
-                            <option value="<%= category.title %>"><%= category.title %></option>
+                            <option value="<%= category._id %>"><%= category.title %></option>
                         <% }) %>
                             </select>
                     </div>  
