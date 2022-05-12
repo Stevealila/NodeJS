@@ -16,7 +16,7 @@ export default {
         
         try {
             post = await post.save()
-            res.redirect('/dashboard/posts')
+            res.redirect('/dashboard')
         } 
         catch {
             res.render('posts/create')
@@ -37,6 +37,8 @@ export default {
     },
 
     postEdit: async (req, res) => {
+        const categories = await Category.find({})
+
         let post = await Post.findById(req.params.id)
 
         post.title = req.body.title_update
@@ -44,13 +46,16 @@ export default {
         post.category = req.body.category_update
         post._body = req.body._body_update
         post.user = req.user.id
-
+        
         try {
+        
             post = await post.save()
-            res.redirect('/dashboard/posts')
+
+            res.redirect('/dashboard')
+            
         } 
         catch {
-            res.render('posts/edit')
+           res.render('posts/edit', { post, categories })
         } 
     },
 
@@ -62,4 +67,3 @@ export default {
     }
     
 }
-

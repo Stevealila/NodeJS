@@ -1,50 +1,35 @@
 <%- include("../../partials/dashboard/header") %>
 
 <div class="table-responsive-md my-5">
-    <% if(posts.length > 0) { %>
+  <% if(posts.length > 0) { %>
 
-        <table class="table table-dark table-hover table-striped">
-            <thead>
-          <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Status</th>
-            <th scope="col">Category</th>
-            <th scope="col">Action</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-            <% posts.forEach( post => { %>
-                <tr>
+      <table class="table table-dark table-hover">
+          <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Status</th>
+          <th scope="col">Category</th>
+        </tr>
+      </thead>
+      <tbody class="text-secondary">
+          <% posts.forEach( post => { %>
+              <tr>
 
-                  <th scope="row"><%= post.title %></th>
+                <th scope="row"><%= post.title %></th>
+                <td><%= post.user.username %></td>
+                <td><%= post.status %></td>
 
-                  <td><%= post.status %></td>
+                <% if(post.category !== undefined) { %>
+                  <td><%= post.category.title %></td>
+                <% } else { %>
+                  <td></td>
+                <% } %>
 
-                  <% if(post.category !== undefined) { %>
-                    <td><%= post.category.title %></td>
-                  <% } else { %>
-                    <th></th>
-                  <% } %>
-
-                    <td>
-                      <button class="btn btn-warning btn-sm me-3">
-                          <a href="/posts/<%= post.id %>"><i class="bi bi-pen-fill"></i></a>
-                      </button>
-                    </td>
-
-                    <td>
-                      <form class="navbar-search form-inline" action="/posts/<%= post.id %>?_method=DELETE" method="post">
-                          <button class="btn btn-danger btn-sm me-3">
-                            <i class="bi bi-trash-fill"></i>
-                          </button>
-                      </form>
-                    </td>
-
-                </tr>
-            <% }) %>
-        </tbody>
-      </table>
+              </tr>
+          <% }) %>
+      </tbody>
+    </table>
 </div>
 
 <% } else { %>

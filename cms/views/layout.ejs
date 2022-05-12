@@ -28,31 +28,32 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav mx-auto">
+
+                    <% if (!user) { %>
+                      <li class="nav-item">
+                        <a class="nav-link text-dark" href="/users/login">Login</a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-dark" href="/users/register">Register</a>
+                      </li>
+                    <% } else { %>
+                        <li class="nav-item">
+                          <a class="nav-link text-dark" href="/dashboard">Dashboard</a>
+                        </li>
+                    <% } %>
+
                     <li class="nav-item">
                       <a class="nav-link text-dark" href="/">Posts</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link text-dark" href="/">About</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-dark" href="/">Services</a>
-                    </li>
 
-                    <% if (!user) { %>
-                      <li class="nav-item">
-                        <a class="nav-link text-dark" href="/users/register">register</a>
-                      </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-dark" href="/users/login">Login</a>
-                      </li>
-                    <% } else { %>
-                        <li class="nav-item">
-                          <a class="nav-link text-dark" href="/dashboard">Dashboard</a>
-                        </li>
-                        <li>
-                          <form action="/users/logout?_method=DELETE" method="post">
-                            <button class="btn btn-warning text-light ms-3">Logout</button>
-                          </form>
+                    <% if (user) { %>
+                      <li>
+                        <form action="/users/logout?_method=DELETE" method="post">
+                          <button class="btn btn-warning ms-3">Logout</button>
+                        </form>
                       </li>
                     <% } %>
 
